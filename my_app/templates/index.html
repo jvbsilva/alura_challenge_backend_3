@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">IMPORTAR TRANSAÇÕES</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+                <div class="file is-info has-name" id="fileInput">
+                    <label class="file-label">
+                        {{ form.file }}
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Importar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert('{{ message }}');
+        </script>
+        {% endfor %}
+        {% endif %}
+
+
+    <h1>IMPORTAÇÕES REALIZADAS</h1>
+    <table>
+        <style>
+            table, th, td {
+               border: 1px solid black;
+            }
+         </style>
+
+        <td>DATA TRANSAÇÕES</td>
+        <td>DATA IMPORTAÇÃO</td>
+
+        {%for row in history%}
+        <tr>
+            <td>{{row.date_transactions}}</td>
+            <td>{{row.date_import}}</td>
+        </tr>
+        {%endfor%}
+
+    </table>
+
+</body>
+</html>
