@@ -1,0 +1,38 @@
+{% extends 'base_out.html' %}
+
+{% block 'titulo' %} Cadastro {% endblock %}
+
+{% block 'conteudo' %} 
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md">
+            <br>
+            <div class="text-center">
+                <h1>Cadastro</h1>
+            </div>
+            <hr>
+            <br>
+            <form action="{% url 'cadastro' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label>Nome:</label>
+                <input class="form-control" name="nome" type="text" placeholder="Nome...">
+                <br>
+                <label>Email:</label>
+                <input class="form-control" name="email" type="text" placeholder="Email...">
+                <br>
+                <div class ="text-center">
+                    <input class="btn btn-success btn-lg" type="submit" value="Cadastrar">
+                </div>
+
+                
+            </form>
+        </div>
+        <div class="col-md"></div>
+        
+    </div>
+</div>
+
+{% endblock %}

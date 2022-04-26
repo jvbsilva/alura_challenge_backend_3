@@ -9,7 +9,10 @@ class Transactions(models.Model):
     conta_destino = models.CharField(max_length= 20)
     valor = models.FloatField()
     data_hora = models.DateTimeField()
+    date_transactions = models.CharField(max_length= 10)
+
 
 class History(models.Model):
-    date_transactions = models.CharField(max_length = 20)
     date_import = models.DateTimeField(auto_now = True)
+    date_transactions = models.CharField(max_length = 10)
+    user = models.CharField(max_length = 50)

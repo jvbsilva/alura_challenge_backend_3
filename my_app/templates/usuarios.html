@@ -1,0 +1,67 @@
+{% extends 'base_in.html' %}
+
+{% block 'titulo' %} Usuários {% endblock %}
+
+{% block 'conteudo' %} 
+
+<br>
+<h1>USUÁRIOS CADASTRADOS</h1>
+<br>
+<a href="{% url 'create_user' %}" class="btn btn-success" role="button" aria-disabled="true">Novo</a>
+<br>
+<br>
+<table class="table table-striped">
+
+    <td><b> NOME </b></td>
+    <td><b> EMAIL </b></td>
+    <td><b> STATUS </b></td>
+    <td><b>  </b></td>
+
+    {%for row in users%}
+    <tr>
+        <td>{{row.first_name}}</td>
+        <td>{{row.email}}</td>
+        <td>
+            {%if row.is_active%}
+            Ativo
+            {% else %}
+            Inativo
+            {%endif%}
+        </td>
+        <td>
+            <a href="{% url 'update_user' row.pk %}" class="btn btn-warning" role="button" aria-disabled="true">Editar</a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#pop-{{row.pk}}">
+            Deletar
+            </button>
+        </td>
+    </tr>
+
+      <!-- Modal -->
+    <div class="modal fade" id="pop-{{row.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                Tem certeza que deseja deletar o usuário <b>{{row.first_name}}</b>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a href="{% url 'delete_user' row.pk %}" class="btn btn-danger" role="button" aria-disabled="true">Remover</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {%endfor%}
+
+</table>
+
+{% endblock %}
+

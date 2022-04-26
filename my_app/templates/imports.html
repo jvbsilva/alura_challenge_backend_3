@@ -1,0 +1,47 @@
+{% extends 'base_in.html' %}
+
+{% block 'titulo' %} Importações {% endblock %}
+
+{% block 'conteudo' %} 
+
+<h1 class="title">IMPORTAR TRANSAÇÕES</h1>
+<br>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="field">
+        <div class="file is-info has-name" id="fileInput">
+            <label class="file-label">
+                {{ form.file }}
+            </label>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <button type="submit" class="btn btn-success">Importar</button>
+        </div>
+    </div>
+</form>
+
+<br>
+<h1>IMPORTAÇÕES REALIZADAS</h1>
+<br>
+
+<table class="table table-striped">
+
+    <td><b> DATA TRANSAÇÕES </b></td>
+    <td><b> DATA IMPORTAÇÃO </b></td>
+    <td><b> USUÁRIO </b></td>
+    <td><b> VISUALIZAR </b></td>
+
+    {%for row in history%}
+    <tr>
+        <td>{{row.date_transactions}}</td>
+        <td>{{row.date_import}}</td>
+        <td>{{row.user}}</td>
+        <td><a href="{% url 'list_transactions' row.date_transactions %}" class="btn btn-primary" role="button" aria-disabled="true">Visualizar</a></td>
+    </tr>
+    {%endfor%}
+
+</table>
+
+{% endblock %}
