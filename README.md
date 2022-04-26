@@ -10,3 +10,12 @@ Projeto desenvolvido durante o Terceiro desafio de Back-End realizado pela [Alur
 
 ## Descrição
 O projeto cosiste em uma aplicação web onde é possível fazer o upload de transações financeiras e posteriormente essas transações serão analisadas com o intuito de identificar possíveis fraudes.
+
+## :hammer: Funcionalidades do projeto
+
+Até o presente momento o projeto conta com as seguintes funcionalidades:
+
+- `Sistema de Login e Cadastro`: Para acessar a a aplicação é preciso fazer login fornecendo um email e senha.
+- `Validação das importações`: Cada rquivo importado passa por uma validação onde as transações inválidas são descartadas e apenas as transações no formato correte são salvas no bando de dados
+- `Histórico das importações`: A cada importação realizada é armazenada a informação sobre a data a que as transações pertencem, a data e hora em que a importação foi realizada e qual o usuário efetuou a importação.
+- `CRUD de usuários`: E possível realizar a consulta, alteração e remoção dos usuários sendo que para um usuário ser removido primeiro ele tem que ter seu status alterado para 'Inativo' o que faz com que um usuário não possa se auto remover uma vez que ao alterar seu status para 'Inativo' este perde o acesso à aplicação.
