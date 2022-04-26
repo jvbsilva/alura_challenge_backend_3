@@ -166,6 +166,6 @@ def delete_user(request,user_pk):
     if del_user.is_active:
         messages.error(request, "Não é possível remover um usuário ativo.")
     else:
-        messages.info(request, "Usuário removido com sucesso.")
         del_user.delete()
+        messages.info(request, "Usuário removido com sucesso.")
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
