@@ -24,6 +24,6 @@ Até o presente momento o projeto conta com as seguintes funcionalidades:
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-- ``Python 3``
+- ``Python``
 - ``Django``
 - ``PostgreSQL``
