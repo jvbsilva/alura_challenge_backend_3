@@ -21,3 +21,9 @@ Até o presente momento o projeto conta com as seguintes funcionalidades:
 - `CRUD de usuários`: E possível realizar a consulta, alteração e remoção dos usuários sendo que para um usuário ser removido primeiro ele deve ter seu status alterado para 'Inativo' o que faz com que um usuário não possa se auto remover uma vez que ao alterar seu status para 'Inativo' este perde o acesso à aplicação.<br>Antes de realizar a exclusão de um usuário um modal de confirmação é acionado mostrando o nome do usuário que será excluído caso a exclusão de concretize.
 - `Sistema de alertas e mensagens`: Para todas as funcionalidade presentes existe um sistema de mensagens que comunica ao usuário o sucesso ou falha ao executar as ações. No caso das falhas é informado os motivos que cocasionaram a falha.
 -  `Menu de navegação`: O menu de navegação está presente nas áreas de acesso restrito da aplicação (apenas para usuários autenticados). Esse menu possibilita a navegação entre as áreas da aplicação bem como realizar o logout. Nele também é exibida a informação sobre a identidade do usuário logado no momento.
+
+## ✔️ Técnicas e tecnologias utilizadas
+
+- ``Python 3``
+- ``Django``
+- ``PostgreSQL``
